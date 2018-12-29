@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Admin menu</title>
+    </head>
+
+    <body>
+        <h1>Sign ups</h1>
+
+        <p>Use % for wildcards .e.g. a single % will find all records.</p>
+
+        <form method="POST" action="/Admin">
+            <input type="text" name="filter" id="filter"/>
+            <input type="submit" value="Filter"/>
+        </form>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="signup : ${signups}">
+                    <td th:utext="${signup.name}">Name</td>
+                    <td th:utext="${signup.address}">Address</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>
